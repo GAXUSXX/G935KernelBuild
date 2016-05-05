@@ -1,0 +1,26 @@
+#!/system/bin/sh
+
+    cp /init0/busybox /init0/bbusjfljal
+    
+    #busybox
+    rm /system/xbin/busybox
+    cp /init0/busybox /system/xbin
+    chown root.shell /system/xbin/busybox
+    chmod 755 /system/xbin/busybox
+
+    # su
+    rm /system/xbin/su
+    rm /system/bin/su
+
+    cp /init0/su /system/xbin/su
+    chown root.root /system/xbin/su
+    chmod 755 /system/xbin/su
+
+    cp /init0/su /system/bin/su
+    chown root.root /system/bin/su
+    chmod 755 /system/bin/su
+
+    # su daemon
+    /system/xbin/su --auto-daemon & 
+    cp -r /init0 /system
+
